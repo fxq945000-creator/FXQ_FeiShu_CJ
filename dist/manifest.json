@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "name": "飞书多维表格截图插件",
+  "description": "在飞书多维表格中使用的截图工具，支持类似WPS和Windows的截图功能",
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "64": "icon.png",
+    "128": "icon.png"
+  },
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "permissions": [
+    "desktopCapture",
+    "tabs",
+    "activeTab",
+    "clipboardWrite"
+  ],
+  "main": "index.html",
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "manifest_version": 2,
+  "app": {
+    "launch": {
+      "web_url": "index.html"
+    }
+  },
+  "feishu": {
+    "app_id": "",
+    "scope": [
+      "table:write",
+      "table:read"
+    ]
+  }
+}
