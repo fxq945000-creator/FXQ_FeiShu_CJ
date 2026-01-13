@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞书多维表格截图工具</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 飞书环境特定样式 */
+        @media screen and (max-width: 800px) {
+            .screenshot-tool {
+                width: 100%;
+                height: 100vh;
+            }
+        }
+        
+        /* 飞书插件容器样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        /* 飞书按钮样式适配 */
+        .feishu-screenshot-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <!-- 飞书环境检测提示 -->
+    <div id="feishu-notice" style="display: none; padding: 10px; background-color: #fff1f0; border: 1px solid #ffccc7; color: #cf1322; margin: 10px;">
+        提示：建议在飞书多维表格中使用此插件以获得最佳体验
+    </div>
+    
+    <!-- 截图工具主界面 -->
+    <div class="screenshot-tool">
+        <div class="toolbar">
+            <button id="fullScreenBtn" class="toolbar-btn">全屏截图</button>
+            <button id="windowBtn" class="toolbar-btn">窗口截图</button>
+            <button id="regionBtn" class="toolbar-btn">区域截图</button>
+            <button id="cancelBtn" class="toolbar-btn cancel">取消</button>
+        </div>
+        <div class="screenshot-container">
+            <canvas id="screenshotCanvas"></canvas>
+        </div>
+        <div class="edit-toolbar">
+            <button id="saveBtn" class="toolbar-btn">保存</button>
+            <button id="copyBtn" class="toolbar-btn">复制到剪贴板</button>
+            <button id="redoBtn" class="toolbar-btn">撤销</button>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+    
+    <!-- 飞书API加载 -->
+    <script>
+        // 检查是否在飞书环境外运行
+        if (!window.fsconfig) {
+            document.getElementById('feishu-notice').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
